@@ -50,29 +50,28 @@ console.log(result);*/
 
 var numbers = [2, -4, 5, -2, -11];
 var result = [];
-var resultLength = 0;
-
+var j = 0;
 
 if (numbers[0] < 0) {
-    result[0] = numbers[0];
-    resultLength = result.length;
-} else { }
+    result[j] = numbers[0];
+    j++;
+}
 
 if (numbers[1] < 0) {
-    result[1] = numbers[1];
-    resultLength = result.length;
+    result[j] = numbers[1];
+    j++;
 }
 if (numbers[2] < 0) {
-    result[2] = numbers[2];
-    resultLength = 3;
+    result[j] = numbers[2];
+    j++;
 }
 if (numbers[3] < 0) {
-    result[3] = numbers[3];
-    resultLength = 4;
+    result[j] = numbers[3];
+    j++;
 }
 if (numbers[4] < 0) {
-    result[4] = numbers[4];
-    resultLength = 5;
+    result[j] = numbers[4];
+    j++;
 }
 console.log(result);
 
