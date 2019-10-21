@@ -107,12 +107,29 @@ Input array: [4, 2, 2, -1, 6]
 Output: 2
 */
 
+var a = [4, 2, 2, -1, -1];
+
+var min = a[0];
+
+var min2 = a[0];
+
+for (var i = 0; i< a.length; i++) {
+    if(a[i] < min) {
+        min2 = min;
+        min = a[i];
+    }
+}
+
+console.log(min2);
+
+
 
 var firstElementLargerThanMinimum = 0;
 
-var inputArray = [4, 2, 2, -1, 6];
+var inputArray = [4, 2, 2, -1, -1];
 
 var inputSecondArray = [];
+var l = 0;
 
 var minimumValue = inputArray[0];
 
@@ -127,7 +144,8 @@ for (var i = 1; i < inputArray.length; i++) {
 for (var j = 0; j < inputArray.length; j++) {
 
     if (inputArray[j] !== minimumValue) {
-        inputSecondArray[j] = inputArray[j];
+        inputSecondArray[l] = inputArray[j];
+        l++;
     }
 }
 
