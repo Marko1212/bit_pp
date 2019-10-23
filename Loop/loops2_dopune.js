@@ -151,6 +151,23 @@ for (var i = 0; i < size; i++) {
 
 console.log(result);
 
+// Domaci zadatak
+
+var row = "";
+var size = 4;
+
+for (var i = 0; i < size; i++) {
+    row += '*';
+}
+
+for (var i = 0; i < size ; i++) {
+    if (i === 0 || i === size - 1) {
+        console.log(row);
+    } else {
+        console.log("----");
+    }
+
+}
 
 
 
