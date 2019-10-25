@@ -229,6 +229,21 @@ Hint: num % 100 >= 11 && num % 100 <= 13
 
 function humanizeNumber(a) {
 
+        if(a % 100 >= 11 && a % 100 <= 13)
+            return a + "th";
+        
+        switch(a % 10) {
+            case 1: return a + "st";
+            case 2: return a + "nd";
+            case 3: return a + "rd";
+        }
+        
+        return a + "th";
+    }
 
 
-}
+console.log(humanizeNumber(11));
+console.log(humanizeNumber(31));
+console.log(humanizeNumber(112));
+
+
