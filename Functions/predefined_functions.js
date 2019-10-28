@@ -98,7 +98,61 @@ Output: 3
 */
 
 
+function countIntegers(arr) {
 
+    var count = 0;
 
+    for (var i = 0; i < arr.length; i++) {
+
+        if ((typeof (arr[i]) !== "number") || isNaN(arr[i]) || !isFinite(arr[i])) {
+            continue;
+        }
+
+        if (parseInt(arr[i]) !== arr[i]) {
+            continue;
+        }
+
+        count++;
+    }
+
+    return count;
+
+}
+
+console.log(countIntegers([NaN, 23.1, 15, false, -22.5, '', 4, 7, null]));
+
+/*
+
+5.
+
+Write a program that calculates a number of float values in the array.
+
+Input: [NaN, 23.1, 15, false, -22.5, '', 4, 7, null]
+Output: 2
+
+*/
+
+function countFloats(arr) {
+
+    var count = 0;
+
+    for (var i = 0; i < arr.length; i++) {
+
+        if ((typeof (arr[i]) !== "number") || isNaN(arr[i]) || !isFinite(arr[i])) {
+            continue;
+        }
+
+        if (parseInt(arr[i]) === arr[i]) {
+            continue;
+        }
+
+        count++;
+    }
+
+    return count;
+
+}
+
+console.log(countFloats([NaN, 23.1, 15, false, -22.5, '', 4, 7, null]));
 
 
