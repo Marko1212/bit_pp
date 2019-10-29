@@ -318,6 +318,6 @@ function gcd(a, b) {
   }
 
 
-  console.log(gcd(81, 9));
+  console.log(gcd(15, 9));
 
   
