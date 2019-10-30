@@ -107,6 +107,7 @@ function returnDigits(num) {
 
 }
 
+
 console.log(returnDigits(789654135));
 
 /*5.
