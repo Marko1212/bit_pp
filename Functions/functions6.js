@@ -145,13 +145,41 @@ function convertCentToFahrenheit(cels) {
 
 console.log(convertCentToFahrenheit(20));
 
-/*.7
+/*
+
+7.
+
 Write a function to find the maximum element in array of numbers. Filter out all non-number elements.
+
 */
 
-function maxelement(arr) {
+function maxElement(arr) {
 
     var arrNum = [];
+    var max;
+
+    /* Filter out non-number elements */
+
+    for (var i = 0; i < arr.length; i++) {
+        if (!isNaN(parseFloat(arr[i])) && isFinite(arr[i])) {
+            arrNum[arrNum.length] = arr[i]
+        }
+    }
+    /* Find maximum element */
+
+    max = arrNum[0];
+
+
+    for (var j = 0; j < arrNum.length; j++) {
+
+        if (max < arrNum[j]) {
+            max = arrNum[j];
+        }
+    }
+
+    return max;
 
 }
 
+
+console.log(maxElement([1, undefined, "Ivana", 89, 41, -3, 1.256, NaN, Infinity, "", null]));
