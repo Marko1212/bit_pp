@@ -229,12 +229,61 @@ console.log(MaxMin([4, 54, 27, -41, -78, 65, -41, 4, 54]));
 
 Write a function to find the median element of array.
 
-Median is the middle value of a set of data. To determine the median value in a sequence of numbers, the numbers must first be arranged in ascending order.
+Median is the middle value of a set of data. To determine the median value in a sequence of numbers, 
+the numbers must first be arranged in ascending or descending order.
 
-If there is an odd amount of numbers, the median value is the number that is in the middle, with the same amount of numbers below and above.
+If there is an odd amount of numbers, the median value is the number that is in the middle, with the same amount 
+of numbers below and above.
+
 If there is an even amount of numbers in the list, the median is the average of the two middle values.
 
 */
 
 
+function medianElement (numArray) {
 
+
+    /*first sort the numArray in descending order*/
+
+var max;
+var target;
+
+for (var i = 0; i < numArray.length - 1; i++) {
+    max = i;
+    for (var j = i + 1; j < numArray.length; j++) {
+        if (numArray[j] > numArray[max]) {
+            max = j;
+        }
+    }
+    if (max != i) {
+        target = numArray[i];
+        numArray[i] = numArray[max];
+        numArray[max] = target;
+    }
+}
+
+/*print the sorted array*/
+
+console.log(numArray);
+
+/*now find the median element in sorted array*/
+
+if ( (numArray.length) % 2 !== 0) {
+
+    return numArray[(numArray.length -1)/2];
+
+}
+
+else 
+
+{
+
+    return (numArray[numArray.length / 2] + numArray[numArray.length / 2 - 1])/2 ;
+
+}
+
+}
+
+console.log(medianElement([8, 2, -4, 3, 5, -9, 15]));
+
+console.log(medianElement([8, 2, -4, 3, 5, -9, 15, 20]));
