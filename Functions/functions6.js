@@ -240,50 +240,90 @@ If there is an even amount of numbers in the list, the median is the average of 
 */
 
 
-function medianElement (numArray) {
+function medianElement(numArray) {
 
 
     /*first sort the numArray in descending order*/
 
-var max;
-var target;
+    var max;
+    var target;
 
-for (var i = 0; i < numArray.length - 1; i++) {
-    max = i;
-    for (var j = i + 1; j < numArray.length; j++) {
-        if (numArray[j] > numArray[max]) {
-            max = j;
+    for (var i = 0; i < numArray.length - 1; i++) {
+        max = i;
+        for (var j = i + 1; j < numArray.length; j++) {
+            if (numArray[j] > numArray[max]) {
+                max = j;
+            }
+        }
+        if (max != i) {
+            target = numArray[i];
+            numArray[i] = numArray[max];
+            numArray[max] = target;
         }
     }
-    if (max != i) {
-        target = numArray[i];
-        numArray[i] = numArray[max];
-        numArray[max] = target;
+
+    /*print the sorted array*/
+
+    console.log(numArray);
+
+    /*now find the median element in sorted array*/
+
+    if ((numArray.length) % 2 !== 0) {
+
+        return numArray[(numArray.length - 1) / 2];
+
     }
-}
 
-/*print the sorted array*/
+    else {
 
-console.log(numArray);
+        return (numArray[numArray.length / 2] + numArray[numArray.length / 2 - 1]) / 2;
 
-/*now find the median element in sorted array*/
-
-if ( (numArray.length) % 2 !== 0) {
-
-    return numArray[(numArray.length -1)/2];
-
-}
-
-else 
-
-{
-
-    return (numArray[numArray.length / 2] + numArray[numArray.length / 2 - 1])/2 ;
-
-}
+    }
 
 }
 
 console.log(medianElement([8, 2, -4, 3, 5, -9, 15]));
 
 console.log(medianElement([8, 2, -4, 3, 5, -9, 15, 20]));
+
+/*
+
+10.
+
+Write a function to find the element that occurs most frequently.
+
+*/
+
+function findMostFrequentElement(arr) {
+
+    var count = 1;
+    var count_max = 1;
+    var mostFrequentElement = arr[0];
+
+    for (var i = 0; i < arr.length; i++) {
+        for (var j = i + 1; j < arr.length; j++) {
+            if (arr[i] === arr[j]) {
+                count++;
+            }
+
+        }
+        if (count > count_max) {
+            count_max = count;
+            mostFrequentElement = arr[i];
+        }
+
+        count = 1;
+
+    }
+
+    return mostFrequentElement;
+
+}
+
+console.log(findMostFrequentElement([1, 2, 5, 7, 4, 3, 2, 3, 7, 1, 7, 2, 7]));
+
+
+
+
+
+
