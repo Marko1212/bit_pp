@@ -347,9 +347,111 @@ function firstMiddleLast(arr) {
 
 console.log(firstMiddleLast([1]));
 
+/* 12.
 
-Write a function to find the average of N elements.Make the function flexible to receive dynamic number or parameters.
+Write a function to find the average of N elements.Make the function flexible to receive dynamic number 
+or parameters.
 
+*/
+function averageOfElements() {
+
+    var res = 0;
+    if (arguments.length === 0) {
+        return "Please enter the input elements!";
+    }
+
+
+    for (var i = 0; i < arguments.length; i++) {
+        res = res + arguments[i];
+    }
+
+    res = res / arguments.length;
+    return res;
+}
+
+
+console.log(averageOfElements(2, 6, -3));
+console.log(averageOfElements());
+
+
+
+/*
+
+13.
+
+Write a function to find all the numbers greater than the average.
+
+*/
+
+function findElementsGreaterThanAverage() {
+
+
+    var res = 0;
+    var result = [];
+
+    if (arguments.length === 0) {
+        return "Please enter the input elements!";
+    }
+
+    for (var i = 0; i < arguments.length; i++) {
+        res = res + arguments[i];
+    }
+
+    res = res / arguments.length;
+
+    for (var j = 0; j < arguments.length; j++) {
+
+        if (arguments[j] > res) {
+            result[result.length] = arguments[j];
+        }
+    }
+
+    return result;
+
+}
+
+
+console.log(findElementsGreaterThanAverage(8, 4, 10, 5, 20));
+
+/*
+
+14.
+
+The body mass index (BMI) is the ratio of the weight of a person (in kilograms) to the square of the height
+(in meters). Write a function that takes two parameters, weight and height, computes the BMI, and prints the
+corresponding BMI category:
+Starvation: less than 15
+Anorexic: less than 17.5
+Underweight: less than 18.5
+Ideal: greater than or equal to 18.5 but less than 25
+Overweight: greater than or equal to 25 but less than 30
+Obese: greater than or equal to 30 but less than 40
+Morbidly obese: greater than or equal to 40
+
+*/
+
+function printBMICategory(weight, height) {
+
+
+
+}
+
+/*
+
+15.
+
+Write a function that takes a list of strings and prints them, one per line, in a rectangular frame.:
+
+For example the list ["Hello", "World", "in", "a", "frame"] gets printed as:
+*********
+* Hello *
+* World *
+* in    *
+* a     *
+* frame *
+*********
+
+*/
 
 
 
