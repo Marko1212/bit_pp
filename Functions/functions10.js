@@ -8,18 +8,22 @@ Write IIFE that replaces the first and the last element of the given array and p
 
     */
 
-(
+
+var res = (
     function (arr) {
 
         var inter = arr[0];
         arr[0] = arr[arr.length - 1];
         arr[arr.length - 1] = inter;
 
-        console.log(arr);
+        return arr;
 
     }
 )([4, 5, 11, 9]);
 
+console.log(res);
+
+/*
 
 function funk(arr) {
 
@@ -33,6 +37,8 @@ function funk(arr) {
 
 console.log(funk([4, 5, 11, 9]));
 
+*/
+
 /*
 
 2.
@@ -43,16 +49,16 @@ Output: 20
 
 */
 
-(
+var res = (
     function (a, b) {
 
-        console.log(a * b);
+        return a*b;
 
     }
 )(4, 5);
 
 
-
+console.log(res);
 
 
 
