@@ -184,3 +184,57 @@ function maxElement(arr) {
 
 
 console.log(maxElement([1, undefined, "Ivana", 89, 41, -3, 1.256, NaN, Infinity, "", null]));
+
+/*
+
+8.
+
+Write a function to find the maximum and minimum elements. Function returns an array.
+
+*/
+
+function MaxMin(arr) {
+
+    var max = arr[0];
+    var min = arr[0];
+
+    for (var i = 0; i < arr.length; i++) {
+
+        if (max < arr[i]) {
+
+            max = arr[i];
+
+        }
+
+    }
+
+    for (var j = 0; j < arr.length; j++) {
+
+        if (min > arr[j]) {
+
+            min = arr[j];
+
+        }
+
+    }
+
+    return [max, min];
+
+}
+console.log(MaxMin([4, 54, 27, -41, -78, 65, -41, 4, 54]));
+
+/*
+
+9.
+
+Write a function to find the median element of array.
+
+Median is the middle value of a set of data. To determine the median value in a sequence of numbers, the numbers must first be arranged in ascending order.
+
+If there is an odd amount of numbers, the median value is the number that is in the middle, with the same amount of numbers below and above.
+If there is an even amount of numbers in the list, the median is the average of the two middle values.
+
+*/
+
+
+
