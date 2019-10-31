@@ -322,6 +322,33 @@ function findMostFrequentElement(arr) {
 
 console.log(findMostFrequentElement([1, 2, 5, 7, 4, 3, 2, 3, 7, 1, 7, 2, 7]));
 
+/* 11.
+
+Write a function to find and return the first, middle and last element of an array if the array has odd number of elements.
+If number of elements is even, return just the first and the last.In other cases(empty array), input array should be returned.
+
+*/
+function firstMiddleLast(arr) {
+
+
+    if (arr.length === 0) {
+        return arr;
+    }
+
+    if (arr.length === 1) {
+        return arr;
+    }
+
+    if (arr.length % 2 !== 0) {
+        return [arr[0], arr[(arr.length - 1) / 2], arr[arr.length - 1]];
+    }
+    return [arr[0], arr[arr.length - 1]];
+}
+
+console.log(firstMiddleLast([1]));
+
+
+Write a function to find the average of N elements.Make the function flexible to receive dynamic number or parameters.
 
 
 
