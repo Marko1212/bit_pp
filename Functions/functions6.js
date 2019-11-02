@@ -432,15 +432,39 @@ Morbidly obese: greater than or equal to 40
 
 function printBMICategory(weight, height) {
 
+var bmi = weight / (height * height);
+var message = "";
 
+if (bmi < 15) {
+    message = "Starvation: less than 15";
+} else if (bmi < 17.5) {
+    message = "Anorexic: less than 17.5";
+} else if (bmi < 18.5) {
+    message = "Underweight: less than 18.5";
+} else if (bmi >= 18.5 && bmi < 25) {
+    message = "Ideal: greater than or equal to 18.5 but less than 25";
+} else if (bmi >= 25 && bmi < 30) {
+    message = "Overweight: greater than or equal to 25 but less than 30";
+} else if (bmi >= 30 && bmi < 40) {
+    message = "Obese: greater than or equal to 30 but less than 40";
+} else {
+    message = "Morbidly obese: greater than or equal to 40"}
+
+
+return "Your BMI is equal to " + bmi + ". " + message;
 
 }
+
+var res = printBMICategory(84, 1.88);
+
+console.log(res);
 
 /*
 
 15.
 
-Write a function that takes a list of strings and prints them, one per line, in a rectangular frame.:
+Write a function that takes a list of strings and prints them, one per line, in a rectangular 
+frame.:
 
 For example the list ["Hello", "World", "in", "a", "frame"] gets printed as:
 *********
@@ -453,6 +477,66 @@ For example the list ["Hello", "World", "in", "a", "frame"] gets printed as:
 
 */
 
+function findMaxLengthElement (arrOfStrings) {
+
+var max = arrOfStrings[0];
+
+    for (var i = 0; i < arrOfStrings.length; i++) {
+
+        if (max.length < arrOfStrings[i].length) {
+
+            max = arrOfStrings[i];
+
+        }
+
+    }
+
+return max;
+
+}
+
+function buildRow(str, num) {
+    
+    var res = '';
+
+    if (str.length === 0) {
+        for (var i = 0; i < num + 4; i++) {
+            res += "*";
+        }
+    }
+    else {
+        
+        res += "* " + str;
+        for (var j = 0; j < num - str.length; j++) {
+            res += " ";
+        }
+        res += " *"
+    }
+
+    return res + "\n";
+}
+
+
+function printListInRectangle (arr) {
+
+    var maxElement = findMaxLengthElement(arr);
+    
+    var result = buildRow ('', maxElement.length);
+
+    for (var i = 0; i < arr.length; i++) {
+   
+        result += buildRow(arr[i], maxElement.length);
+}
+
+    result += buildRow ('', maxElement.length);
+
+return result;
+
+}
+
+var result = printListInRectangle (["Hello", "World", "in", "a", "frame", "for ever", "now it's time for css, bootstrap and co.!"]);
+
+console.log(result);
 
 
 
