@@ -32,13 +32,15 @@ Write a JavaScript function that reverses a number. typeof result of the functio
 function reverseNumber(num) {
   var str = new String(num);
 
-  var res = "";
+  var x = str.split("").reverse().join("");
+ /* console.log(typeof x); : string*/
 
-  for (var i = str.length; i--; i = 0) {
-    res += str[i];
-  }
+ var y = parseInt(x);
+ /* console.log(typeof y); : number */
 
-  return parseInt(res);
+ return y;
+
 }
 
 console.log(reverseNumber(1234558967));
+
