@@ -1,3 +1,5 @@
+"use strict";
+
 /* 1. Create an object that represents your favorite coffee.Please include coffee name, strength, flavour
 , milk, sugar, … everything you like! */
 
