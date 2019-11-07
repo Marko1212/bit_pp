@@ -125,8 +125,31 @@ console.log(abbrevStr("John Snow"));
 
 7.
 
-Write a function that can pad (left, right) a string to get to a determined length.
+Write a function that can pad (left, right) a string to get to a determined length. P.S. The output is a string.
 
 	'0000', 123, 'l' -> 0123 
 '00000000', 123, 'r' -> 12300000
- */
+ 
+*/
+
+function padString(str, num, direction) {
+  if (direction === "l") {
+    return (str + num).slice(-str.length);
+  }
+  if (direction === "d") {
+    return (num + str).slice(0, str.length);
+  }
+}
+
+console.log(padString("0000", 123, "l"));
+console.log(padString("00000000", 123, "d"));
+
+/* 
+
+8.
+
+Write a function to capitalize the first letter of a string and returns modified string.
+
+"js string exercises" -> "Js string exercises" 
+
+*/
