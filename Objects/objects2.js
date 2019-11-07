@@ -125,19 +125,23 @@ console.log(abbrevStr("John Snow"));
 
 7.
 
-Write a function that can pad (left, right) a string to get to a determined length. P.S. The output is a string.
+Write a function that can pad (left, right) a string to get to a determined length. 
+P.S. The output is a string.
+
+Write a function that adds string to the left or right of string, by replacing it’s 
+characters.
 
 	'0000', 123, 'l' -> 0123 
 '00000000', 123, 'r' -> 12300000
  
 */
 
-function padString(str, num, direction) {
+function padString(pad, str, direction) {
   if (direction === "l") {
-    return (str + num).slice(-str.length);
+    return (pad + str).slice(-pad.length);
   }
   if (direction === "d") {
-    return (num + str).slice(0, str.length);
+    return (str + pad).slice(0, pad.length);
   }
 }
 
@@ -153,3 +157,72 @@ Write a function to capitalize the first letter of a string and returns modified
 "js string exercises" -> "Js string exercises" 
 
 */
+
+function capitalizeFirstLetter (str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+console.log(capitalizeFirstLetter ("js string exercises"));
+
+/* 
+
+9.
+
+Write a function to hide email addresses to protect them from unauthorized users.
+
+  "somerandomaddress@example.com" -> "somerand...@example.com" */
+  
+  function protectEmail (inputEmail) {
+    var splitted, part1, part2;
+    splitted = inputEmail.split("@");
+    part1 = splitted[0];
+  
+    part1 = part1.substring(0, (0.5*part1.length));
+    part2 = splitted[1];
+    
+    return part1 + "...@" + part2;
+};
+
+console.log(protectEmail("pera.zdera@bit.rs"));
+
+/* 
+
+10.
+
+Write a program that accepts a string as input and swaps the case of each character. 
+For example, if you input 'The Quick Brown Fox', the output should be 'tHE qUICK bROWN fOX'.
+       var UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+       var LOWER = 'abcdefghijklmnopqrstuvwxyz';
+
+"The Quick Brown Fox" -> "tHE qUICK bROWN fOX" 
+
+*/
+
+function swapTheCaseOfCharacter(str) {
+
+
+var UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var LOWER = 'abcdefghijklmnopqrstuvwxyz';
+var result = [];
+  
+  for(var i=0; i<str.length; i++)
+  {
+    if(UPPER.indexOf(str[i]) !== -1)
+    {
+      result.push(str[i].toLowerCase());
+    }
+    else if(LOWER.indexOf(str[i]) !== -1)
+    {
+      result.push(str[i].toUpperCase());
+    }
+    else 
+    {
+      result.push(str[i]);
+    }
+  }
+return result.join('');
+
+}
+
+console.log(swapTheCaseOfCharacter("The Quick Brown Fox"));
+
