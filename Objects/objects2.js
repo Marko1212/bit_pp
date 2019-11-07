@@ -30,17 +30,18 @@ Write a JavaScript function that reverses a number. typeof result of the functio
  */
 
 function reverseNumber(num) {
-  
   var str = new String(num);
 
-  var x = str.split("").reverse().join("");
- /* console.log(typeof x); : string*/
+  var x = str
+    .split("")
+    .reverse()
+    .join("");
+  /* console.log(typeof x); : string*/
 
- var y = parseInt(x);
- /* console.log(typeof y); : number */
+  var y = parseInt(x);
+  /* console.log(typeof y); : number */
 
- return y;
-
+  return y;
 }
 
 console.log(reverseNumber(123412438));
@@ -55,10 +56,12 @@ Note: Assume punctuation, numbers and symbols are not included in the passed str
 
 */
 
-function alphabeticalOrder(str)
-  {
-return str.split('').sort().join('');
-  }
+function alphabeticalOrder(str) {
+  return str
+    .split("")
+    .sort()
+    .join("");
+}
 console.log(alphabeticalOrder("webmaster"));
 
 /* 
@@ -71,24 +74,20 @@ are sorted from A to Z.
 	"Republic Of Serbia" -> "Rbceilpu Of Sabeir"
 */
 
-function alphabeticalOrderWords(str)
-  {
-var arrOfStrings = str.split(' ');
+function alphabeticalOrderWords(str) {
+  var arrOfStrings = str.split(" ");
 
-console.log(arrOfStrings);
+  console.log(arrOfStrings);
 
-for (var i = 0; i < arrOfStrings.length; i++) {
-  arrOfStrings[i] = alphabeticalOrder(arrOfStrings[i]);
-}
-console.log(arrOfStrings);
-
-return arrOfStrings.join(" ");
-
+  for (var i = 0; i < arrOfStrings.length; i++) {
+    arrOfStrings[i] = alphabeticalOrder(arrOfStrings[i]);
   }
+  console.log(arrOfStrings);
 
-  console.log(alphabeticalOrderWords("Republic Of Serbia"));
+  return arrOfStrings.join(" ");
+}
 
-
+console.log(alphabeticalOrderWords("Republic Of Serbia"));
 
 /*   
 
@@ -100,25 +99,34 @@ Write a function to split a string and convert it into an array of words.
   
  */
 
-function convertStrToArrOfWords (str) {
-
+function convertStrToArrOfWords(str) {
   return str.split(" ");
 }
 
-console.log(convertStrToArrOfWords ("John Snow"));
+console.log(convertStrToArrOfWords("John Snow"));
 
-/* Write a function to convert a string to its abbreviated form. 
+/* 
+
+6. Write a function to convert a string to its abbreviated form. 
 
   "John Snow" -> 	"John S." */
-  
 
-    function abbrevStr(str) {
-    var splitted = str.split(" ");
-    if (splitted.length > 1) {
-        return (splitted[0] + " " + splitted[1].charAt(0) + ".");
-    }
-    return splitted[0];
-};
+function abbrevStr(str) {
+  var splitted = str.split(" ");
+  if (splitted.length > 1) {
+    return splitted[0] + " " + splitted[1].charAt(0) + ".";
+  }
+  return splitted[0];
+}
 
 console.log(abbrevStr("John Snow"));
 
+/* 
+
+7.
+
+Write a function that can pad (left, right) a string to get to a determined length.
+
+	'0000', 123, 'l' -> 0123 
+'00000000', 123, 'r' -> 12300000
+ */
