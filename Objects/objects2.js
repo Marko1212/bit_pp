@@ -30,6 +30,7 @@ Write a JavaScript function that reverses a number. typeof result of the functio
  */
 
 function reverseNumber(num) {
+  
   var str = new String(num);
 
   var x = str.split("").reverse().join("");
@@ -42,5 +43,82 @@ function reverseNumber(num) {
 
 }
 
-console.log(reverseNumber(1234558967));
+console.log(reverseNumber(123412438));
+
+/*
+3.
+
+Write a JavaScript function that returns a passed string with letters in alphabetical order. 
+Note: Assume punctuation, numbers and symbols are not included in the passed string.
+
+“Webmaster” -> “abeemrstw”
+
+*/
+
+function alphabeticalOrder(str)
+  {
+return str.split('').sort().join('');
+  }
+console.log(alphabeticalOrder("webmaster"));
+
+/* 
+4.
+
+Write a function to alphabetize words of a given string. 
+Alphabetizing a string means rearranging the letters so they 
+are sorted from A to Z. 
+	
+	"Republic Of Serbia" -> "Rbceilpu Of Sabeir"
+*/
+
+function alphabeticalOrderWords(str)
+  {
+var arrOfStrings = str.split(' ');
+
+console.log(arrOfStrings);
+
+for (var i = 0; i < arrOfStrings.length; i++) {
+  arrOfStrings[i] = alphabeticalOrder(arrOfStrings[i]);
+}
+console.log(arrOfStrings);
+
+return arrOfStrings.join(" ");
+
+  }
+
+  console.log(alphabeticalOrderWords("Republic Of Serbia"));
+
+
+
+/*   
+
+5.
+
+Write a function to split a string and convert it into an array of words.
+
+  "John Snow" -> [ 'John', 'Snow' ]
+  
+ */
+
+function convertStrToArrOfWords (str) {
+
+  return str.split(" ");
+}
+
+console.log(convertStrToArrOfWords ("John Snow"));
+
+/* Write a function to convert a string to its abbreviated form. 
+
+  "John Snow" -> 	"John S." */
+  
+
+    function abbrevStr(str) {
+    var splitted = str.split(" ");
+    if (splitted.length > 1) {
+        return (splitted[0] + " " + splitted[1].charAt(0) + ".");
+    }
+    return splitted[0];
+};
+
+console.log(abbrevStr("John Snow"));
 
