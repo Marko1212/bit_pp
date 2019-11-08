@@ -121,6 +121,121 @@ Output:  { minValue: -2, minLastIndex: 6 }
 
 function smallestElement(arr) {
 
+    var mini = Math.min(...arr);
+
+    var lastPositionMini = arr.lastIndexOf(mini);
+
+    return { minValue: mini, minLastIndex: lastPositionMini };
 
 
 }
+
+console.log(smallestElement([1, 4, -2, 11, 8, 1, -2, 3]));
+
+
+
+/*
+
+5.a.
+
+Write a function that finds all the elements in a given array less than a given element.
+	Input: [2, 3, 8, -2, 11, 4], 6
+    Output: [2, 3, -2, 4] 
+    
+    */
+
+
+function lessThanElement(arr, element) {
+    var result = [];
+
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] < element) {
+            result.push(arr[i]);
+        }
+    }
+
+    return result;
+}
+
+console.log(lessThanElement([2, 3, 8, -2, 11, 4], 6));
+
+
+
+
+
+/*
+
+5.b.
+
+    Write a function that finds all the elements in a given array that start with the “pro” substring. The function should be case insensitive.
+	Input: [’JavaScript’, ’Programming’, ’fun’, ’product’]
+    Output: [’Programming’, ‘product’]
+
+    */
+
+function startPro(arr) {
+    var result = [];
+
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i].toLowerCase().substring(0, 3) === "pro") {
+            result.push(arr[i]);
+        }
+    }
+
+    return result;
+}
+
+console.log(startPro(["JavaScript", "Programming", "fun", "product"]));
+
+/*
+
+5.c.
+
+Write a function that expects an array and a callback function that filters out some of the elements. Use functions defined in a) or b) to test it.
+
+*/
+
+function filter(arr, callback) {
+}
+
+
+filter([4, 5, 8, 7], startPro)
+filter([4, 5, 8, 7], lessThanElement)
+
+TO DO!!!
+
+/*
+
+6. a.
+
+
+Write a list (array) of products you usually buy in the supermarket. Write a price and name for each product. For example,
+	[
+{name: ‘apples’, price: 100},
+{name: ‘milk’, price: 80},
+{name:’bananas’, price: 150}
+    ]
+*/
+
+var listOfProducts = [
+    { name: "apples", price: 100 },
+    { name: "milk", price: 80 },
+    { name: "bananas", price: 150 }
+]
+
+/* 6. b. Write a function that calculates the total price of your shopping list.  */
+
+
+function totalPrice(listOfItems) {
+    var totalPrice = 0;
+
+    for (var i = 0; i < listOfItems.length; i++) {
+        totalPrice += listOfItems[i].price;
+    }
+
+    return totalPrice;
+
+}
+
+console.log(totalPrice(listOfProducts));
+
