@@ -191,18 +191,31 @@ console.log(startPro(["JavaScript", "Programming", "fun", "product"]));
 
 5.c.
 
-Write a function that expects an array and a callback function that filters out some of the elements. Use functions defined in a) or b) to test it.
+Write a function that expects an array and a callback function that filters out some of the elements.
 
 */
 
-function filter(arr, callback) {
+function filter(collection, callback) {
+    var result = [];
+
+    for (var i = 0; i < collection.length; i++) {
+        if (callback(collection[i])) {
+            result.push(collection[i]);
+        }
+    }
+
+    return result;
+
 }
 
+function lessThanFour(element) {
 
-filter([4, 5, 8, 7], startPro)
-filter([4, 5, 8, 7], lessThanElement)
+    return element < 4;
 
-TO DO!!!
+}
+
+console.log(filter([1, 3, 5, 7, 9], lessThanFour));
+
 
 /*
 
