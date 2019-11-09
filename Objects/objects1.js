@@ -346,7 +346,7 @@ function isValidYear(myNumber) {
 console.log(isValidYear(2020)); */
 
 /* 7.e. 
-Write a function named validator that returns an object with properties 
+Write a function named validator that returns an object with methods 
 stringValidator, passwordValidator, colorValidator, and yearValidator 
 referencing the functions from a) to d). */
 
@@ -460,7 +460,43 @@ console.log(date2); //2019-11-09T11:43:22.003Z
 console.log(calculateTripDuration(date1, date2));
 // 3 hours 21 minutes 9 seconds
 
+/* 
+10.a.
 
+Write a constructor function that creates points in space.
+Each point in space has its own x, y, and z coordinate.
+For example, (3, 5, 1) can be a point in space.
 
+ */
 
+function Point(abscissa, ordinate, applicate) {
+    this.abscissa = abscissa;
+    this.ordinate = ordinate;
+    this.applicate = applicate;
+}
+
+var onePoint = new Point(3, 5, 1);
+console.log(onePoint);
+// Point { abscissa: 3, ordinate: 5, applicate: 1 }
+
+/* 
+10.b.
+
+Write a function that calculates the distance between two points in the
+space.
+ */
+
+function calculateDistance(point1, point2) {
+    var a = Math.pow(point2.abscissa - point1.abscissa, 2);
+    var b = Math.pow(point2.ordinate - point1.ordinate, 2);
+    var c = Math.pow(point2.applicate - point1.applicate, 2);
+
+    return Math.sqrt(a + b + c).toFixed(2);
+
+}
+
+var pointOne = new Point(2, 7, 1);
+var pointTwo = new Point(-3, 4, -2);
+
+console.log(calculateDistance(pointOne, pointTwo));
 
