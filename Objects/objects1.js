@@ -480,7 +480,7 @@ console.log(onePoint);
 // Point { abscissa: 3, ordinate: 5, applicate: 1 }
 
 /* 
-10.b.
+10. b.
 
 Write a function that calculates the distance between two points in the
 space.
@@ -499,4 +499,90 @@ var pointOne = new Point(2, 7, 1);
 var pointTwo = new Point(-3, 4, -2);
 
 console.log(calculateDistance(pointOne, pointTwo));
+//6.56
+
+/* 
+
+11. a.
+
+Write a function that generates a random integer value between 5 and 20.
+
+*/
+
+function generateRandom1() {
+
+    return Math.round(5 + 15 * Math.random());
+
+}
+
+console.log(generateRandom1());
+
+/* 11. b.
+
+Write a function that generates a random integer value between 50 and 100. 
+ 
+*/
+
+function generateRandom2() {
+
+    return Math.round(50 + 50 * Math.random());
+
+}
+
+console.log(generateRandom2());
+
+/* 11. c.
+
+Write a function which expects a number and a callback generator function and returns an array of numbers produced by the generator function.    
+ 
+*/
+
+function generateRandomArray(arrLength, callback) {
+    var result = [];
+
+    for (var i = 0; i < arrLength; i++) {
+        result[i] = callback();
+    }
+
+    return result;
+
+}
+
+console.log(generateRandomArray(7, generateRandom2));
+
+console.log(generateRandomArray(10, generateRandom1));
+
+
+/* 
+
+12.
+
+Write a function that shuffles the elements of a given array. 
+Input: [3, 6, 11, 2, 9, 1]
+Output: [6, 2, 9, 1, 3, 11]  (it can be any random permutation of the 
+given array) 
+    
+*/
+
+var arrayToShuffle = [3, 6, 11, 2, 9, 1];
+
+var arrayShuffle = function(arr) {
+    var newPosition, temp;
+
+    for (var j = arr.length-1; j > 0; j--) {
+        newPosition = Math.floor(Math.random()*(j+1));
+        temp = arr[j];
+        arr[j] = arr[newPosition];
+        arr[newPosition] = temp;
+    }
+
+    return arr;
+
+}
+
+var newArray = arrayShuffle(arrayToShuffle);
+
+console.log(newArray); //[ 6, 11, 1, 9, 2, 3 ]
+
+
 
