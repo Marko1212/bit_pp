@@ -1,6 +1,10 @@
+<<<<<<< HEAD
+/* 1. Create an object that represents your favourite coffee.Please include coffee name, strength, flavour
+=======
 "use strict";
 
 /* 1. Create an object that represents your favorite coffee.Please include coffee name, strength, flavour
+>>>>>>> js_exercises
 , milk, sugar, … everything you like! */
 
 var coffee = {
@@ -92,11 +96,14 @@ function createCulinaryRecipe(a, b, c, d, e, f) {
         listOfIngr: d,
         preparing_time: e,
         preparing_instruction: f,
+<<<<<<< HEAD
+=======
 
         printIngr: function() {
             console.log(this.listOfIngr);
         },
 
+>>>>>>> js_exercises
         changeType: function (newType) {
             this.type_of_cuisine = newType;
         },
@@ -115,6 +122,15 @@ function createCulinaryRecipe(a, b, c, d, e, f) {
     };
 }
 
+<<<<<<< HEAD
+var salata = createCulinaryRecipe("shopska salata", "salade", "1", ["tomatoes", "cheese", "cucumbers", "onions"], "10 minutes", "mix tomatoes, cheese, cucumbers, and onions");
+
+console.log(salata);
+salata.changeType('dessert');
+console.log(salata);
+salata.deleteIngr(1);
+console.log(salata);
+=======
 var salade = createCulinaryRecipe("shopska salata", "salade", "1", ["tomatoes", "cheese", "cucumbers", "onions"], 15, "mix tomatoes, cheese, cucumbers, and onions");
 
 console.log(salade);
@@ -122,6 +138,7 @@ salade.changeType('dessert');
 console.log(salade);
 salade.deleteIngr(1);
 console.log(salade);
+>>>>>>> js_exercises
 
 /* 5. Write a function that creates an object that represent a computer program. Each program is described by:
 description,  programming language, git repository, boolean status that says if the program is completed or not.
@@ -180,6 +197,8 @@ Add a method that checks if a meal can be prepared for 15 minutes.
 Add a method that changes the type of cuisine to the given value.
 Add a method that delete a given ingredient from the list of ingredients. */
 
+<<<<<<< HEAD
+=======
 
 function culinaryRecipe(name, typeOfCuisine, complexity, listOfIngr, prepareTime, prepareInstr) {
 
@@ -219,3 +238,4 @@ console.log(salata);
 salata.changeType("aperitif");
 
 console.log(salata);
+>>>>>>> js_exercises
