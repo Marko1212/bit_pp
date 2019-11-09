@@ -26,7 +26,7 @@ var duplicateArray = function (arr) {
 
 }
 
-console.log(duplicateArray([2, 4, 7, 11, -2, 1]));
+/* console.log(duplicateArray([2, 4, 7, 11, -2, 1])); */
 
 
 /* 2.
@@ -48,7 +48,7 @@ var removeDuplicates = function (arr) {
     return result.sort(function (a, b) { return a - b });
 }
 
-console.log(removeDuplicates([8, 13, 8, 9, 12, 8, 1, 1, 4, 13]));
+/* console.log(removeDuplicates([8, 13, 8, 9, 12, 8, 1, 1, 4, 13])); */
 
 
 
@@ -107,8 +107,9 @@ function countNumbersLessThanCentral(arr) {
 }
 
 
-console.log(countNumbersLessThanCentral([-1, 8.1, 3, 6, 2.3, 44, 2.11, 3, 1]));
-
+/* console.log(countNumbersLessThanCentral([-1, 8.1, 3, 6, 2.3, 44, 2.11, 3, 1]));
+ 
+*/
 /*
 
 4.
@@ -130,7 +131,7 @@ function smallestElement(arr) {
 
 }
 
-console.log(smallestElement([1, 4, -2, 11, 8, 1, -2, 3]));
+/* console.log(smallestElement([1, 4, -2, 11, 8, 1, -2, 3])); */
 
 
 
@@ -157,7 +158,7 @@ function lessThanElement(arr, element) {
     return result;
 }
 
-console.log(lessThanElement([2, 3, 8, -2, 11, 4], 6));
+/* console.log(lessThanElement([2, 3, 8, -2, 11, 4], 6)); */
 
 
 
@@ -185,7 +186,7 @@ function startPro(arr) {
     return result;
 }
 
-console.log(startPro(["JavaScript", "Programming", "fun", "product"]));
+/* console.log(startPro(["JavaScript", "Programming", "fun", "product"])); */
 
 /*
 
@@ -214,7 +215,7 @@ function lessThanFour(element) {
 
 }
 
-console.log(filter([1, 3, 5, 7, 9], lessThanFour));
+/* console.log(filter([1, 3, 5, 7, 9], lessThanFour)); */
 
 
 /*
@@ -236,6 +237,8 @@ var listOfProducts = [
     { name: "bananas", price: 150 }
 ]
 
+/* console.log(listOfProducts); */
+
 /* 6. b. Write a function that calculates the total price of your shopping list.  */
 
 
@@ -250,5 +253,153 @@ function totalPrice(listOfItems) {
 
 }
 
-console.log(totalPrice(listOfProducts));
+/* console.log(totalPrice(listOfProducts)); */
+
+/* 6.c. Write a function that calculates the average product price of your shopping list. Print this value with the precision of three decimals. 
+ */
+
+function averagePrice(listOfItems) {
+    return totalPrice(listOfItems) / listOfItems.length;
+}
+
+/* console.log(averagePrice(listOfProducts)); */
+
+
+/* 6.d. Write a function that prints out the name of the most expensive product on your 
+shopping list. Write the name in uppercase. 
+ */
+
+function displayMostExpensiveItem(listOfItems) {
+    var result = "";
+    var listOfPrices = [];
+    var maxPrice = 0;
+    var indexMaxPrice = 0;
+
+    for (var i = 0; i < listOfItems.length; i++) {
+        listOfPrices[i] = listOfItems[i].price;
+    }
+    maxPrice = Math.max(...listOfPrices);
+    indexMaxPrice = listOfPrices.indexOf(maxPrice);
+
+    return listOfItems[indexMaxPrice].name.toUpperCase();
+
+}
+
+/* console.log(displayMostExpensiveItem(listOfProducts)); */
+
+
+
+/* 7.a. Write a function that checks if a given string is written in all capitals.
+ */
+
+function checkIfCapitals(str) {
+    return str.toUpperCase() === str;
+}
+
+/* console.log(checkIfCapitals("CBSDFSDFaSDFSDF"));
+console.log(checkIfCapitals("CBSDFSDFQSDFSDF")); */
+
+/* 7.b.
+Write a function that checks if a given string contains any digits.
+*/
+
+function hasDigits(myString) {
+    for (var i = 0; i < myString.length; i++) {
+        if (!isNaN(parseFloat(myString[i]))) {
+
+            return true;
+
+        }
+    }
+
+    return false;
+
+}
+
+/* console.log(hasDigits('qsdqdAqsd1q')); */
+
+
+/* 7.c.
+
+Write a function that checks if a given string is a valid hexadecimal color.
+
+*/
+
+function isHexaColor(myString) {
+
+    return (myString.length === 6 && !isNaN(Number('0x' + myString)));
+}
+
+/* console.log(isHexaColor("AABBCC")); /*true*/
+
+/*console.log(isHexaColor("AAXXCC")); /*false*/ 
+
+/* 7.d.
+Write a function that checks if a given number belongs to the interval from 1900 to 2019.
+ */
+
+function isValidYear(myNumber) {
+
+    return myNumber >= 1900 && myNumber <= 2019;
+
+}
+
+/* console.log(isValidYear(2019));
+console.log(isValidYear(2020)); */
+
+/* 7.e. 
+Write a function named validator that returns an object with properties 
+stringValidator, passwordValidator, colorValidator, and yearValidator 
+referencing the functions from a) to d). */
+
+function Validator() {
+
+    return {
+
+        stringValidator: function (str) {
+
+            //string is valid if it contains at least 1 lowercase letter
+            return !checkIfCapitals(str);
+
+        },
+
+        passwordValidator: function (str) {
+
+            //password is valid if it contains at least 6 characters
+            //and at least 1 digit
+            return str.length >= 6 && hasDigits(str);
+
+        },
+
+        colorValidator: function (str) {
+
+            return isHexaColor(str);
+            
+        },
+
+        yearValidator: function (str) {
+
+            return isValidYear(str);
+
+        }
+
+
+    }
+
+}
+
+var validator = Validator();
+
+console.log(validator.yearValidator(1899)); /*false*/
+console.log(validator.stringValidator("QBBQSDAS")); /*false*/
+console.log(validator.stringValidator("QBcQSDAS")); /*true*/
+console.log(validator.passwordValidator("abcerg")); /*false*/
+console.log(validator.passwordValidator("abcer7")); /*true*/
+console.log(validator.colorValidator('aabbcc')); /*true*/
+console.log(validator.colorValidator("aaxxdd")); /*false*/
+
+
+
+
+
 
