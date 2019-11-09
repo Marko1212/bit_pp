@@ -38,6 +38,7 @@ Output: [1, 4, 8, 9, 12, 13]  */
 
 var removeDuplicates = function (arr) {
     var result = [];
+
     for (var i = 0; i < arr.length; i++) {
         if (result.indexOf(arr[i]) === -1) {
             result.push(arr[i])
@@ -46,6 +47,7 @@ var removeDuplicates = function (arr) {
 
     /*now sort the array without duplicates in ascending order (numbers) then return the result */
     return result.sort(function (a, b) { return a - b });
+
 }
 
 /* console.log(removeDuplicates([8, 13, 8, 9, 12, 8, 1, 1, 4, 13])); */
@@ -64,7 +66,9 @@ Output: true
  */
 
 function isOddLength(arr) {
+
     return arr.length % 2 === 1;
+
 }
 /* 
 console.log(isOddLength([1, 2, 9, 2, 1, 7])); */
@@ -81,7 +85,6 @@ Output: 4
 */
 
 function countNumbersLessThanCentral(arr) {
-
     var centralIndex;
     var counter = 0;
 
@@ -94,13 +97,10 @@ function countNumbersLessThanCentral(arr) {
         centralIndex = Math.floor(arr.length / 2);
 
         for (var i = 0; i < arr.length; i++) {
-
             if (arr[i] < arr[centralIndex]) {
                 counter++;
             }
-
         }
-
     }
 
     return counter;
@@ -121,9 +121,7 @@ Output:  { minValue: -2, minLastIndex: 6 }
 */
 
 function smallestElement(arr) {
-
     var mini = Math.min(...arr);
-
     var lastPositionMini = arr.lastIndexOf(mini);
 
     return { minValue: mini, minLastIndex: lastPositionMini };
@@ -332,7 +330,7 @@ function isHexaColor(myString) {
 
 /* console.log(isHexaColor("AABBCC")); /*true*/
 
-/*console.log(isHexaColor("AAXXCC")); /*false*/ 
+/*console.log(isHexaColor("AAXXCC")); /*false*/
 
 /* 7.d.
 Write a function that checks if a given number belongs to the interval from 1900 to 2019.
@@ -374,7 +372,7 @@ function Validator() {
         colorValidator: function (str) {
 
             return isHexaColor(str);
-            
+
         },
 
         yearValidator: function (str) {
@@ -398,6 +396,69 @@ console.log(validator.passwordValidator("abcer7")); /*true*/
 console.log(validator.colorValidator('aabbcc')); /*true*/
 console.log(validator.colorValidator("aaxxdd")); /*false*/
 
+/* 
+
+8.
+
+Write a function that calculates a number of days to your birthday.
+Input: 25 February 
+Output: 5 days 
+
+*/
+
+function numberOfDaysUntilBirthday() {
+    var today = new Date();
+    var bday = new Date(today.getFullYear(), 11, 12);
+    var one_day = 1000 * 60 * 60 * 24;
+
+    if (today.getMonth() == 11 && today.getDate() > 12) {
+        bday.setFullYear(bday.getFullYear() + 1);
+    }
+
+    return Math.ceil((bday.getTime() - today.getTime()) / (one_day)) +
+        " days left until your birthday!";
+
+}
+
+console.log(numberOfDaysUntilBirthday());
+
+/*
+
+9.
+
+Write a function that for a given departure and arrival time calculates
+the time the trip takes.
+	Input: 8:22:13 11:43:22
+	Output: 3 hours 21 minutes 9 seconds */
+
+function calculateTripDuration(start, end) {
+    var d, h, m, s;
+    var ms = end - start;
+
+    s = Math.floor(ms / 1000);
+    m = Math.floor(s / 60);
+    s = s % 60;
+    h = Math.floor(m / 60);
+    m = m % 60;
+    d = Math.floor(h / 24);
+    h = h % 24;
+    h += d * 24;
+
+    return h + ' hours ' + m + ' minutes ' + s + ' seconds';
+
+}
+
+var date1 = new Date();
+var date2 = new Date();
+
+date1.setHours(9, 22, 13);
+date2.setHours(12, 43, 22);
+
+console.log(date1); //2019-11-09T08:22:13.003Z
+console.log(date2); //2019-11-09T11:43:22.003Z
+
+console.log(calculateTripDuration(date1, date2));
+// 3 hours 21 minutes 9 seconds
 
 
 
