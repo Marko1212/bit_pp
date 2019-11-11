@@ -11,7 +11,7 @@ function Person(name, surname) {
 
 function Seat(number, category) {
     this.number = number;
-    this.category = category;
+    this.category = category || 'e';
 
     this.getData = function () {
         return 'seat: ' + this.number + ', ' + this.category + ' class';
@@ -35,13 +35,13 @@ function Flight(relation, date, listOfPassengers) {
     this.addPassenger = function (passenger) {
 
         this.listOfPassengers.push(passenger);
-    
+
     }
 
     this.getData = function () {
 
         return this.date + ', ' + this.relation + '\n' + this.listOfPassengers;
-  
+
     }
 
 }
@@ -54,13 +54,13 @@ of passengers with their data.
         2, E, Cersei Lannister */
 
 
-function Airport(listOfFlights) {
+function Airport() {
     this.name = "Nikola Tesla";
-    this.listOfFlights = listOfFlights;
+    this.listOfFlights = [];
     this.addFlight = function (flight) {
 
         this.listOfFlights.push(flight);
-    
+
     }
 
 }
@@ -110,10 +110,10 @@ var flight1 = (function (relation, date, firstName, lastName, seatNumber, catego
     function createFlight(relation, date) {
 
         return new Flight(relation, date, []);
-    
+
     }
 
-    function createPassenger(firstName, lastName, seatNumber, category){
+    function createPassenger(firstName, lastName, seatNumber, category) {
         var newSeat = new Seat(seatNumber, category);
         var newPerson = new Person(firstName, lastName);
 
@@ -129,10 +129,10 @@ var flight2 = (function (relation, date, firstName, lastName, seatNumber, catego
     function createFlight(relation, date) {
 
         return new Flight(relation, date, []);
-    
+
     }
 
-    function createPassenger(firstName, lastName, seatNumber, category){
+    function createPassenger(firstName, lastName, seatNumber, category) {
         var newSeat = new Seat(seatNumber, category);
         var newPerson = new Person(firstName, lastName);
 
@@ -145,18 +145,18 @@ var flight2 = (function (relation, date, firstName, lastName, seatNumber, catego
 
 /* In you main program function, create an instance of the Airport object.  */
 
-var airport = new Airport ([]);
+var airport = new Airport("Nikola Tesla", []);
 
 
 /* Create two instances of the Flight object using the createFlight function and the following data:
 relation: "Belgrade - New York" 		date: "Oct 25 2017"
 relation: "Barcelona - Belgrade" 		date: "Nov 11 2017" */
 
-/* 
-Create four instances of the Passenger object using the createPassenger function with the following data: 
+/*
+Create four instances of the Passenger object using the createPassenger function with the following data:
 Name: "John" 	surname: "Snow" 		seat number: 1		category: "b"
 Name: "Cersei" 	surname: "Lannister" 	seat number: 2		category: "b"
-Name: "Daenerys" 	surname: "Targaryen" 	seat number: 14	
+Name: "Daenerys" 	surname: "Targaryen" 	seat number: 14
 Name: "Tyrion" 	surname: "Lannister" 	 */
 
 
