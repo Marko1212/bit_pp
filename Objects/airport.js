@@ -114,7 +114,7 @@ function createPassenger(firstName, lastName, seatNumber, category) {
 
 /* In you main program function, create an instance of the Airport object.  */
 
-var airport = new Airport("Nikola Tesla", []);
+var airport = new Airport();
 
 
 /* Create two instances of the Flight object using the createFlight function and the following data:
