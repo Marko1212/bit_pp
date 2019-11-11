@@ -32,7 +32,7 @@ function Program(date) {
 
     }
 
-    this.formateDate = function (date) {
+    this.formateDate = function () {
         var datestring = this.date.getDate() + "." + (this.date.getMonth() + 1) + "." + this.date.getFullYear();
 
         return datestring;
@@ -96,33 +96,32 @@ function Festival(name) {
 function createMovie(title, length, genreStr) {
 
     var genre = new Genre(genreStr);
-    var movie = new Movie(title, genre, length);
+    var movie = new Movie(title, genre, parseInt(length));
     return movie;
 
 }
 
-function createProgram(date) {
+function createProgram(day, month, year) {
+
+    var dateStr = month + "-" + day + "-" + year
+    var date = new Date(dateStr);
+
 
     return new Program(date);
 
 }
 
 
-
-
-var date1 = new Date(2019, 11, 6);
-var date2 = new Date(2019, 11, 7);
-
 var fest = new Festival("Cannes festival");
 
-var program1 = createProgram(date1);
-var program2 = createProgram(date2);
+var program1 = createProgram(22, 1, 2020);
+var program2 = createProgram(23, 1, 2020);
 
 
-var movie1 = createMovie("Underground", 122, "Drama");
-var movie2 = createMovie("Star Wars", 140, "Sci-Fi");
-var movie3 = createMovie("Lord of the rings", 160, "Adventure");
-var movie4 = createMovie("Indiana Jones", 110, "Action");
+var movie1 = createMovie("Underground", '122', "Drama");
+var movie2 = createMovie("Star Wars", '140', "Sci-Fi");
+var movie3 = createMovie("Lord of the rings", '160', "Adventure");
+var movie4 = createMovie("Indiana Jones", '110', "Action");
 
 program1.addMovie(movie1);
 program1.addMovie(movie2);
