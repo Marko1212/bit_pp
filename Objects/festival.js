@@ -32,7 +32,7 @@ function Program(date) {
 
     }
 
-    this.formateDate = function () {
+    this.formatDate = function () {
         var datestring = this.date.getDate() + "." + (this.date.getMonth() + 1) + "." + this.date.getFullYear();
 
         return datestring;
@@ -49,7 +49,7 @@ function Program(date) {
         }
 
         result += "\t\t";
-        result += this.formateDate() + ", program duration " + totalLength + " min \n";
+        result += this.formatDate() + ", program duration " + totalLength + " min \n";
 
         for (var i = 0; i < this.listOfMovies.length; i++) {
             var movie = this.listOfMovies[i]
