@@ -80,15 +80,6 @@ var res2 = p2.getData();
 console.log(res1);
 console.log(res2);
 
-/* Create an anonymous immediately-invoking function that will hold the 
-main execution of all program calls. Writing a simple command 
-console.log(“Hi”) inside this function and running the code should 
-output “Hi“ in the console. */
-
-(function () {
-    console.log("Hi");
-})();
-
 
 /* Add addPassenger method to Flight. It should receive Passenger and add
 the passenger to the passenger list of a given flight.  */
@@ -104,43 +95,21 @@ Inside your immediately-invoking function, add createPassenger function
 that receives a first name, last name, seat number and category and 
 returns a created Passenger. */
 
-var flight1 = (function (relation, date, firstName, lastName, seatNumber, category) {
-    console.log("Hi");
+function createFlight(relation, date) {
 
-    function createFlight(relation, date) {
+    return new Flight(relation, date, []);
 
-        return new Flight(relation, date, []);
+}
 
-    }
+function createPassenger(firstName, lastName, seatNumber, category) {
+    var newSeat = new Seat(seatNumber, category);
+    var newPerson = new Person(firstName, lastName);
 
-    function createPassenger(firstName, lastName, seatNumber, category) {
-        var newSeat = new Seat(seatNumber, category);
-        var newPerson = new Person(firstName, lastName);
+    return new Passenger(newPerson, newSeat);
 
-        return new Passenger(newPerson, newSeat);
+}
 
-    }
 
-})("Belgrade - New York", "Oct 25 2019");
-
-var flight2 = (function (relation, date, firstName, lastName, seatNumber, category) {
-    console.log("Hi");
-
-    function createFlight(relation, date) {
-
-        return new Flight(relation, date, []);
-
-    }
-
-    function createPassenger(firstName, lastName, seatNumber, category) {
-        var newSeat = new Seat(seatNumber, category);
-        var newPerson = new Person(firstName, lastName);
-
-        return new Passenger(newPerson, newSeat);
-
-    }
-
-})("Barcelona - Belgrade", "Nov 11 2019");
 
 
 /* In you main program function, create an instance of the Airport object.  */
