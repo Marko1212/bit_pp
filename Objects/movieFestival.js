@@ -5,7 +5,7 @@ function Genre(name) {
 
     this.getData = function () {
 
-        return this.name.charAt(0).toUpperCase() + this.name.charAt(name.length - 1).toUpperCase();
+        return this.name.charAt(0).toUpperCase() + this.name.charAt(this.name.length - 1).toUpperCase();
 
     }
 }
