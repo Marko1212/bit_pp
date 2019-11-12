@@ -10,7 +10,7 @@ function Person(name, surname) {
 }
 
 function Seat(number, category) {
-    this.number = number;
+    this.number = number || Math.round(10 + 90 * Math.random());
     this.category = category || 'e';
 
     this.getData = function () {
@@ -23,14 +23,14 @@ function Passenger(person, seat) {
     this.seat = seat;
 
     this.getData = function () {
-        return this.person.getData() + '\n' + this.seat.getData();
+        return '\t\t' + this.person.getData() + '\n' + '\t\t' + this.seat.getData();
     }
 }
 
-function Flight(relation, date, listOfPassengers) {
+function Flight(relation, date) {
     this.relation = relation;
     this.date = date;
-    this.listOfPassengers = listOfPassengers;
+    this.listOfPassengers = [];
 
     this.addPassenger = function (passenger) {
 
@@ -39,8 +39,22 @@ function Flight(relation, date, listOfPassengers) {
     }
 
     this.getData = function () {
+        var result ="";
+        result += "\t";
+        result += this.formatDate() + ', ' + this.relation + '\n';
+        for (var i = 0; i < this.listOfPassengers.length; i++) {
+            result += this.listOfPassengers[i].getData();
+            result += "\n";
+        }
 
-        return this.date + ', ' + this.relation + '\n' + this.listOfPassengers;
+        return result;
+
+    }
+
+    this.formatDate = function () {
+        var datestring = this.date.getDate() + "." + (this.date.getMonth() + 1) + "." + this.date.getFullYear();
+
+        return datestring;
 
     }
 
@@ -63,9 +77,35 @@ function Airport() {
 
     }
 
+    this.totalPassengers = function() {
+        var total = 0;
+
+        for (var i = 0; i < this.listOfFlights.length; i++){
+            total += this.listOfFlights[i].listOfPassengers.length;
+        }
+
+        return total;
+
+    }
+
+    this.getData = function () {
+        var result = "";
+
+        result = "Airport: " + this.name + ", total passengers : " + this.totalPassengers() + "\n";
+
+        for (var i = 0; i < this.listOfFlights.length; i++) {
+            var flight = this.listOfFlights[i];
+            result += flight.getData();
+        }
+
+        return result;
+
+    }
+
+
 }
 
-var pera = new Person('Pera', 'Peric');
+/* var pera = new Person('Pera', 'Peric');
 var zika = new Person('Zika', 'Zikic');
 
 var a1 = new Seat(1, 'first');
@@ -78,7 +118,7 @@ var res1 = p1.getData();
 var res2 = p2.getData();
 
 console.log(res1);
-console.log(res2);
+console.log(res2); */
 
 
 /* Add addPassenger method to Flight. It should receive Passenger and add
@@ -95,11 +135,14 @@ Inside your immediately-invoking function, add createPassenger function
 that receives a first name, last name, seat number and category and 
 returns a created Passenger. */
 
-function createFlight(relation, date) {
+function createFlight(relation, day, month, year) {
 
-    return new Flight(relation, date, []);
+    var dateStr = month + "-" + day + "-" + year;
+    var date = new Date(dateStr);
+    return new Flight(relation, date);
 
 }
+
 
 function createPassenger(firstName, lastName, seatNumber, category) {
     var newSeat = new Seat(seatNumber, category);
@@ -118,8 +161,11 @@ var airport = new Airport();
 
 
 /* Create two instances of the Flight object using the createFlight function and the following data:
-relation: "Belgrade - New York" 		date: "Oct 25 2017"
-relation: "Barcelona - Belgrade" 		date: "Nov 11 2017" */
+relation: "Belgrade - New York" 		date: "Nov 16 2019"
+relation: "Barcelona - Belgrade" 		date: "Dec 21 2019" */
+
+var flight1 = createFlight("Belgrade - New York", 16, 11, 2019);
+var flight2 = createFlight("Barcelona - Belgrade", 21, 12, 2019);
 
 /*
 Create four instances of the Passenger object using the createPassenger function with the following data:
@@ -128,6 +174,43 @@ Name: "Cersei" 	surname: "Lannister" 	seat number: 2		category: "b"
 Name: "Daenerys" 	surname: "Targaryen" 	seat number: 14
 Name: "Tyrion" 	surname: "Lannister" 	 */
 
+var passenger1 = createPassenger("John", "Snow", 1, "b");
+var passenger2 = createPassenger("Cersei", "Lannister", 2, "b");
 
+var passenger3 = createPassenger("Daenerys", "Targaryen", 14);
+var passenger4 = createPassenger("Tyrion", "Lannister");
+
+/* 
+Add the first two passengers to the first flight and the second two to the
+second flight using the Flight’s addPassenger method.
+
+Add the created flight instances to the airport using Airport’s addFlight
+method.
+ */
+
+flight1.addPassenger(passenger1);
+flight1.addPassenger(passenger2);
+
+flight2.addPassenger(passenger3);
+flight2.addPassenger(passenger4);
+
+airport.addFlight(flight1);
+airport.addFlight(flight2);
+
+/*  Call Airport’s getData method to display the airport data output in the 
+ following manner: */
+
+/*  Airport: Nikola Tesla, total passengers: 4
+     25.10.2017, Belgrade - Paris
+         1, B, John Snow
+         2, E, Cersei Lannister
+     11.11.2017, Barcelona - Belgrade
+         3, E, Daenerys Targaryen
+         4, E, Tyrion Lannister
+ */
+
+var output = airport.getData();
+
+console.log(output);
 
 

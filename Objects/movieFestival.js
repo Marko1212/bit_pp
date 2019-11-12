@@ -103,7 +103,7 @@ function createMovie(title, length, genreStr) {
 
 function createProgram(day, month, year) {
 
-    var dateStr = month + "-" + day + "-" + year
+    var dateStr = month + "-" + day + "-" + year;
     var date = new Date(dateStr);
 
 
@@ -134,3 +134,4 @@ fest.addProgram(program2);
 
 var programOfFestival = fest.getData();
 console.log(programOfFestival);
+
