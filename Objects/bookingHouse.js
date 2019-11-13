@@ -75,8 +75,7 @@
         this.numberOfPlayers++;
     }
     BettingHouse.prototype.getData = function () {
-        var result = "";
-
+//to be implemented
 
     }
 
