@@ -95,7 +95,7 @@ var kartica = new PaymentCard(5000, "2-23-2018"); //2018-02-22T23:00:00.000Z
 korpa.addProduct(sljiva);
 korpa.addProduct(ananas);
 
-
+console.log(kartica);
 
 var daLiMoguDaKupim = checkOutAndBuy(korpa, kartica);
 console.log(daLiMoguDaKupim);
