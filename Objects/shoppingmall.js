@@ -89,7 +89,7 @@ var sljiva = new Product("sljiva", 9000, new Date());
 var ananas = new Product("ananas", 50, new Date());
 
 var korpa = new ShoppingBag();
-var kartica = new PaymentCard(5000, "2-23-2018"); //2018-02-22T23:00:00.000Z
+var kartica = new PaymentCard(5000, "02-23-2018");
 
 
 korpa.addProduct(sljiva);
