@@ -19,76 +19,87 @@ getSalary which prints out the salary
 increaseSalary which increases the salary by 10%
  */
 
-function Person(name, surname) {
+class Person {
+    
+    constructor(name, surname) {
     this.name = name;
     this.surname = surname;
 }
 
-Person.prototype.getFullName = function () {
+getFullName() {
 
-    return this.name + " " + this.surname;
+    return `${this.name} ${this.surname}`;
 
 }
 
-function Employee(name, surname, job, salary) {
-    Person.call(this, name, surname);
+}
+  
+
+class Employee extends Person {
+    constructor(name, surname, job, salary) {
+    super(name, surname);
     this.job = job;
     this.salary = salary;
 }
 
-Employee.prototype.getData = function () {
+getData() {
 
-    return this.name + " " + this.surname + " " + " salary : " + this.salary;
-
-}
-
-Employee.prototype.getSalary = function () {
-
-    return "Salary : " + this.salary;
+    return `${this.name} ${this.surname} salary : ${this.salary}`;
 
 }
 
-Employee.prototype.increaseSalary = function () {
+getSalary() {
+
+    return `Salary : ${this.salary}`;
+
+}
+
+increaseSalary() {
 
     return this.salary *= 1.1;
 
 }
 
-
-
-function Developer(name, surname, job, salary, specialization) {
-    Employee.call(this, name, surname, job, salary);
-    this.specialization = specialization;
 }
 
-Developer.prototype = Object.create(Employee.prototype);
-Developer.prototype.constructor = Developer;
 
-Developer.prototype.getSpecialization = function () {
+class Developer extends Employee {
+    constructor (name, surname, job, salary, specialization) {
+        super(name, surname, job, salary);
+        this.specialization = specialization;
+    }
+
+
+getSpecialization() {
 
     return this.specialization;
 
 }
 
-function Manager(name, surname, job, salary, department) {
-    Employee.call(this, name, surname, job, salary);
-    this.department = department;
 }
 
-Manager.prototype = Object.create(Employee.prototype);
-Manager.prototype.constructor = Manager;
+class Manager extends Employee {
+    constructor (name, surname, job, salary, department) {
+        super(name, surname, job, salary);
+        this.department = department;
+    }
 
-Manager.prototype.getDepartment = function () {
 
-    return this.department;
+    getDepartment() {
+
+        return this.department;
+    
+    }
+    
+    changeDepartment(depart) {
+
+        this.department = depart;
+        return this.department;
+    
+    }
 
 }
 
-Manager.prototype.changeDepartment = function (depart) {
-
-    this.department = depart;
-
-}
 
 
 var empl1 = new Employee("Pera", "Zdera", "accountant", 10000);
@@ -130,69 +141,77 @@ like which increases the number of stars by one
 showStars which prints out the number of stars 
  */
 
-function Application(name, licence, stars) {
+class Application {
+    constructor(name, licence, stars) {
     this.name = name;
     this.licence = licence;
     this.stars = stars;
 }
 
-Application.prototype.isCCLicence = function () {
+isCCLicence() {
+
     return this.licence === "CC";
 
 }
 
-Application.prototype.like = function () {
+like() {
 
     return ++this.stars;
 
 }
 
-Application.prototype.showStars = function () {
+showStars () {
 
     return this.stars;
 
 }
 
-Application.prototype.getData = function () {
+getData() {
     return `Name: ${this.name}, licence: ${this.licence}, stars: ${this.stars}`;
-};
+}
 
+}
 
-function WebApp(name, url, technologies, licence, stars) {
-    Application.call(this, name, licence, stars);
+class WebApp extends Application {
+    constructor(name, licence, stars, url, technologies) {
+    super(name, licence, stars);
     this.url = url;
     this.technologies = technologies;
-};
+}
 
-WebApp.prototype = Object.create(Application.prototype);
-WebApp.prototype.constructor = WebApp;
+getData() {
+    return super.getData() + `, url: ${this.url}, technologies: ${this.technologies}`;
+}
 
-WebApp.prototype.getData = function () {
-    return `Name: ${this.name}, url: ${this.url}, technologies: ${this.technologies}, licence: ${this.licence}, stars: ${this.stars}`;
-};
-
-WebApp.prototype.reactBased = function () {
+reactBased() {
     return (this.technologies.indexOf("React") !== -1);
-};
+}
 
-function MobileApp(name, platforms, licence, stars) {
-    Application.call(this, name, licence, stars);
+}
+
+class MobileApp extends Application {
+    constructor(name, platforms, licence, stars) {
+    super(name, licence, stars);
     this.platforms = platforms;
 }
-MobileApp.prototype = Object.create(Application.prototype);
-MobileApp.prototype.constructor = MobileApp;
 
-MobileApp.prototype.forAndroid = function () {
-    return (this.platforms.indexOf("Android") !== -1)
+forAndroid() {
+
+    return (this.platforms.indexOf("Android") !== -1);
+
 }
 
-MobileApp.prototype.getData = function () {
-    return `Name: ${this.name}, platform: ${this.platforms}, licence: ${this.licence}, stars: ${this.stars}`;
-};
+getData() {
+
+    return super.getData() + ` platform: ${this.platforms}`;
+
+}
+
+}
 
 
-var app1 = new WebApp("Bus Plus", "http.nesto", "PHP MySql", "CC", 4);
-var app2 = new WebApp("Filmovi", "http.nesto drugo", "JS React", "GNU", 1);
+var app1 = new WebApp("Bus Plus", "CC", 4, "http.nesto", "PHP MySql");
+var app2 = new WebApp("Filmovi", "GNU", 1, "http.nesto drugo", "JS React");
 var app3 = new MobileApp("Plus", "Android", "CCl", 10);
 var app4 = new MobileApp("Bus", "IOS", "CC", 3);
 
@@ -204,6 +223,7 @@ console.log(app2.reactBased());
 console.log(app2.like());
 console.log(app3.isCCLicence());
 console.log(app4.forAndroid());
+console.log(app3.getData());
 
 
 

@@ -87,6 +87,7 @@ Manager.prototype.getDepartment = function () {
 Manager.prototype.changeDepartment = function (depart) {
 
     this.department = depart;
+    return this.department;
 
 }
 
@@ -183,7 +184,7 @@ MobileApp.prototype = Object.create(Application.prototype);
 MobileApp.prototype.constructor = MobileApp;
 
 MobileApp.prototype.forAndroid = function () {
-    return (this.platforms.indexOf("Android") !== -1)
+    return (this.platforms.indexOf("Android") !== -1);
 }
 
 MobileApp.prototype.getData = function () {
