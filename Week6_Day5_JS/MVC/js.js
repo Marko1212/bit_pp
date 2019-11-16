@@ -27,7 +27,7 @@ var dataModule = (function () {
             this.genre = new Genre(movieData.genre);
         }
 
-        getDisplayText() {
+        getInfo() {
             return `${this.title}, ${this.length} min, ${this.genre.getShortGenre()}`;
         }
 
@@ -126,7 +126,7 @@ var dataModule = (function () {
 
         for (var i = 0; i < movies.length; i++) {
             var item = document.createElement("li");
-            item.textContent = movies[i].getDisplayText();
+            item.textContent = movies[i].getInfo();
 
         }
 
