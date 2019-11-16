@@ -4,20 +4,6 @@
 var dataModule = (function () {
 
     var data = { movies: [] }
-    /* 
-        class Movie {
-    
-            constructor(title, length, genre) {
-                this.title = title;
-                this.length = length;
-                this.genre = new Genre(genre);
-            }
-    
-            getDisplayText() {
-                return `${this.title}, ${this.length} min, ${this.genre.getShortGenre()}`;
-            }
-    
-        } */
 
     class Genre {
 
@@ -48,10 +34,8 @@ var dataModule = (function () {
     }
 
 
-    function createAddMovie(movieData) {
-
+    function createAndAddMovie(movieData) {
         var addMov = new Movie(movieData);
-
         data.movies.push(addMov);
 
         return data;
@@ -64,11 +48,11 @@ var dataModule = (function () {
 
         var total = 0;
 
-        for (var i = 0; i < movies.length; i++) {
-            total += parseInt(movies[i].length);
+        for (var i = 0; i < data.movies.length; i++) {
+            total += parseInt(data.movies[i].length);
         }
 
-
+        return total;
 
     }
 
@@ -78,16 +62,10 @@ var dataModule = (function () {
 
     }
 
-/*     function getGenreAbbrev(genre) {
-
-        return genre.getShortGenre();
-
-    } */
-
 
     return {
         data: data,
-        createAddMovie: createAddMovie,
+        createAndAddMovie: createAndAddMovie,
         getTotalLength: getTotalLength
 
     }
@@ -95,9 +73,6 @@ var dataModule = (function () {
 })();
 
     var uiModule = (function () {
-
- /*    var addMovieButton = document.querySelector("#button");
-    var addDateButton = document.getElementById("date"); */
 
     var movieList = document.querySelector(".movieList");
 
@@ -115,7 +90,7 @@ var dataModule = (function () {
             genre: genreSelect.value
         }
 
-        //validacija podataka
+       
         if (!movieData.title) {
             displayError("Please enter title!");
             return;
@@ -141,7 +116,7 @@ var dataModule = (function () {
 
     function clearInputFields() {
 
-        titleInput.title = "";
+        titleInput.value = "";
         lengthInput.value = "";
         genreSelect.value = "select";
 
@@ -159,13 +134,13 @@ var dataModule = (function () {
 
         clearInputFields();
 
-       /*  totalLengthOfMovies(movies); */
+    
 
     }
 
-    function displayTotalLength() {
+    function displayTotalLength(totalLength) {
 
-        document.querySelector("#totalLength").textContent = "Total movie length: " + getTotalLength() + " min.";
+        document.querySelector("#totalLength").textContent = "Total movie length: " + totalLength + " min.";
     }
 
     function displayError(msg) {
@@ -189,73 +164,18 @@ var controllerModule = (function (data, ui) {
 
    
 
-    function onAddMovieClickHandler(event) {
+    function onAddMovieClickHandler() {
         var movieData = uiModule.collectFormData();
-        dataModule.createAddMovie(movieData);
-        uiModule.displayMovies(dataModule.data);
 
+        if (movieData === undefined) {return;}
+      
+        dataModule.createAndAddMovie(movieData);
+        uiModule.displayMovies(dataModule.data.movies);
+        uiModule.displayTotalLength(dataModule.getTotalLength());
     }
 
 
 })(dataModule, uiModule);
-
-
-
-
-
-
-
-    /*     //validacija podataka
-        if (!movieData.title) {
-            displayError("Please enter title!");
-            return;
-        }
-    
-        if (!movieData.length) {
-            displayError("Please enter duration!");
-            return;
-        }
-    
-        if (document.querySelector("#select").value === "select") {
-            displayError("Please enter genre!");
-            return;
-        }
-    
-    
-        if (movieData.title && movieData.length && movieData.genre) {
-            document.querySelector(".error").textContent = "";
-        }
-    
-        var movie = new Movie(movieData.title, movieData.length, movieData.genre);
-    
-        movies.push(movie);
-     */
-    /*    displayMovies(movies); */
-
-
-
-
-
-
-
-/*
-function totalLengthOfMovies(movies) {
-
-
-    var total = 0;
-
-    for (var i = 0; i < movies.length; i++) {
-        total += parseInt(movies[i].length);
-    }
-
-    document.querySelector("#totalLength").textContent = "Total movie length: " + total + " min.";
-
-}
- */
-
-
-
-
 
 
 
