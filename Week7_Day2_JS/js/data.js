@@ -17,7 +17,7 @@ const dataModule = (function () {
             const myUsers = [];
             for (let index = 0; index < usersList.length; index++) {
                 const userObj = usersList[index];
-                const user = new User(userObj.id, userObj.login, userObj.avatar_url);
+                const user = new User(userObj.id, userObj.login, userObj.avatar_url);                                   //Ovako sortiramo podatke koje nam trebaju sa servera
                 myUsers.push(user);
 
             }
