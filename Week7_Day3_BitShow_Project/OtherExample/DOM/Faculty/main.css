@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+container {
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+div {
+    display: inline-block;
+    width: 31%;
+    padding: 20px;
+    background: gainsboro;
+    border-radius: 10px;
+    height: 480px;
+    margin: 10px;
+    vertical-align: top;
+}
+
+input {
+    width: 70%;
+    display: block;
+    margin: 10px auto;
+    border-radius: 10px;
+    height: 30px;
+    text-align: center;
+    border: solid 1px gray;
+}
+
+input[type="button"] {
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    border: 1px solid black;
+    background: blueviolet;
+    color: white;
+    padding: 10px;
+    width: 35%;
+    font-weight: bold;
+    height: 40px;
+}
+
+label {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+ol {
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+select {
+    display: block;
+    margin: 10px auto;
+    width: 50%;
+    height: 30px;
+    border-radius: 10px;
+    border: solid 1px gray;
+}
+
+li {
+    font-size: 1.5rem;
+    color: red;
+}
+
+input[type="radio"]{
+    display: inline-block;
+}
+
+#studentDiv {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: initial;
+}
+
+#professorDiv {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: initial;
+}
+
+background{
+    opacity:0.7;
+    background-color:black;
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    z-index:0;
+    display: none;
+}
+
+grade {
+    display: inline-block;
+    margin: 0 20px;
+    width: 5%;
+    color: blue;
+}
+
+table {
+    width: 70%;
+    border: solid 1px gray;
+    border-radius: 10px;
+    padding: 10px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    background: lightskyblue;
+    border-collapse: collapse;
+}
+
+th, td {
+    width: 22%;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+th {
+    font-size: 1.4rem;
+}
+
+td {
+    font-size: 1.2rem;
+    color: blue;
+}
+
+#infoDiv{
+    height: 100%;
+    width: 96%;
+}
