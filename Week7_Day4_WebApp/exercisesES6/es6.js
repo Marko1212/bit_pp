@@ -41,7 +41,7 @@ const array3 = array1.map(element =>
 )
 console.log(array3);
 
-/* 3 Write a function that increases each element of the given array by the given value. 
+/* 3. Write a function that increases each element of the given array by the given value. 
 If the value is omitted, increase each element of the array by 1.  
 	Input: [4, 6, 11, -9, 2.1], 2
 	Output: [6, 8, 13, -7, 4.1] */
@@ -56,7 +56,7 @@ const add = (arr, param) => {
 }
 console.log(add(inputArray, 3));
 
-/*4 Write a function that filters all even elements of the array.
+/*4. Write a function that filters all even elements of the array.
 	Input: [6, 11, 9, 0, 3]
 	Output: [6, 0]
  */
@@ -65,7 +65,7 @@ const res = input.filter(element => element % 2 === 0)
 console.log(res);
 
 
-/* 5 Write a function that filters all the strings from the given array that contain substring JS or js.
+/* 5. Write a function that filters all the strings from the given array that contain substring JS or js.
 	Input: ['compiler', 'transpiler', 'babel.js', 'JS standard', 'linter']
 	Output: ['babel.js, 'JS standard'] */
 
@@ -76,9 +76,22 @@ const result5 = inputArray1.filter(element => element.includes('JS') || element.
 console.log(result5);
 
 
-/*6 Write a function that filters all integer numbers from the given array. 
+/*6. Write a function that filters all integer numbers from the given array. 
 Input: [1.6, 11.34, 9.23, 7, 3.11, 8]
     Output: [7, 8] */
 const arr = [1.6, 11.34, 9.23, 7, 3.11, 8]
 const res6 = arr.filter(element => parseInt(element) === element)
 console.log(res6);
+
+
+/* 7. Write a function that filters all integer arguments that contain digit 5.
+	Function arguments: 23, 11.5, 9, 'abc', 45, 28, 553 
+    Output: [45, 553] */
+
+    const args = [23, 11.5, 9, "abc", 45, 28, 553];
+
+const filterItems = (digit) => {
+    return args.filter(arg => parseInt(arg) === arg && arg.toString().indexOf(digit.toString()) > -1);
+} 
+
+console.log(filterItems(5));

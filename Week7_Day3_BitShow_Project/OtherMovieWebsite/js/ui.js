@@ -36,6 +36,7 @@ const uiModule = (() => {
     }
 
     const createShowPage = ({ seasons, name, posterURL, details, cast }) => {
+        console.log({ seasons, name, posterURL, details, cast });
         $(selectors.row).children().remove();
 
         $("h1").text(name).css("text-align", "center");
@@ -63,6 +64,7 @@ const uiModule = (() => {
     }
 
     const createDropDownList = searchResults => {
+        console.log(searchResults);
         let listOfShows = searchResults.map(({ show }) => `<li id="${show.id}">${show.name}</li>`).join("");
         $(".dropdown ul").children().remove();
         $(".dropdown").css("display", "block");

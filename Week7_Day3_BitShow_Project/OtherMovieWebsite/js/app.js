@@ -7,7 +7,7 @@
         $(ui.selectors.searchInput).on("keyup", () => {
 
             let currentValueSearch = ui.searchByValueURL();
-
+            console.log(currentValueSearch);
             data.fetchShows(currentValueSearch, createDropdownCallback, ui.displayError);
 
 
@@ -23,6 +23,7 @@
 
     // CALLBACK FUNCTIONS
     const createHomepageCallback = (response) => {
+        console.log(response);
         const topShows = response.filter(element => parseFloat(element.rating.average) > 8.3).slice(0, 50);
         ui.createHomePage(topShows);
 
@@ -33,7 +34,7 @@
         });
     }
 
-    const createSearchPage = (response) => {
+        const createSearchPage = (response) => {
         console.log(response);
 
         const resultShows = response.slice(0, 50);
@@ -45,8 +46,9 @@
             createShowPageOnSelect(singleSearchUrl);
         });
     }
-
+ 
     const createDropdownCallback = (response) => {
+        console.log(response);
         ui.createDropDownList(response);
 
         $(".dropdown li").on("click", function (e) {
@@ -66,7 +68,8 @@
 
     const createShowPageOnSelect = (singleSearchUrl) => {
         data.fetchShows(singleSearchUrl, pageCreationCallback, ui.displayError);
-        ui.createShowPage(this.id);
+      /*   console.log(this.id);
+        ui.createShowPage(this.id); */
     }
 
     const pageCreationCallback = (({ id, name, image, _embedded, summary }) => {
