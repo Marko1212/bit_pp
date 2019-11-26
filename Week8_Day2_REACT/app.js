@@ -4,7 +4,7 @@ const Paragraph = (props) => {
     console.log(props);
     return (
 
-        <p>{props.text} <br /> {props.text2}</p>   /* MORA SVE U JEDNOM REDU */
+        <p>{props.text} <br /> {props.text2}</p>   /* MORA SVE U JEDNOM REDU */                      /*   svaki const je komponenta/funkcija */
 
     )
 }
