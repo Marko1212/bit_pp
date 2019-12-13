@@ -2,15 +2,6 @@ import { postsEndpoint } from "../shared/constants";
 import { get } from "./APIService";
 import { Post } from "../entities/Post";
 
-
-/* class PostService {
-    constructor() {
-
-        this.data = {
-            posts: []
-        }
-    } */
-
     const getPosts = () =>  {
         return get(postsEndpoint)
             .then((response) => {
