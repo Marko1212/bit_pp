@@ -88,10 +88,74 @@ console.log(res6);
 	Function arguments: 23, 11.5, 9, 'abc', 45, 28, 553 
     Output: [45, 553] */
 
-    const args = [23, 11.5, 9, "abc", 45, 28, 553];
+const args = [23, 11.5, 9, "abc", 45, 28, 553];
 
 const filterItems = (digit) => {
     return args.filter(arg => parseInt(arg) === arg && arg.toString().indexOf(digit.toString()) > -1);
-} 
+}
 
 console.log(filterItems(5));
+
+
+/* 8. Write a function that returns indexes of the elements greater than 10.
+	Input: [1.6, 11.34, 29.23, 7, 3.11, 18]
+    Output: 1, 2, 5 */
+
+// indication : https://stackoverflow.com/questions/26468557/return-index-value-from-filter-method-javascript
+
+const array = [1.6, 11.34, 29.23, 7, 3.11, 18];
+
+const indexElement = (arr, number) => arr.map((element, index) => element > number ? index : undefined).filter(x => x);
+
+console.log(indexElement(array, 10));
+
+/* 9.
+Create an array of persons. A person should be an object with name and age properties.
+a. Experiment with enhanced object literals (ES6).
+b. Write a function that prints out the names of persons older than 25.
+c. Write a function that check if there is a person older than 40.
+d. Write a function that checks if all persons are older than 20.
+  */
+
+arrayPersons = [{ name: "John", age: 18 }, { name: "Maria", age: 33 }, { name: "Andjelija", age: 75 }, { name: "Marko", age: 46 }]
+
+// a. Experiment with enhanced object literals (ES6).
+let name = "name";
+let age = "age";
+
+const John = {
+    [name]: "John", [age]: 25
+}
+
+console.log(John);
+console.log(John.name);
+console.log(John.age);
+
+const nameMaria = { [name]: "Maria" };
+const ageMaria = { [age]: 33 };
+const Maria = { ...nameMaria, ...ageMaria };
+console.log(Maria);
+
+// b. Write a function that prints out the names of persons older than 25.
+
+const olderThanThreshold = (threshold, arr) => arr.map(element => element.age > 25 ? element.name : undefined).filter(x => x);
+
+console.log(olderThanThreshold(25, arrayPersons))
+
+/* 10. Write a function that checks if the given array is an array of positive integer values.
+	Input: [3, 11, 9, 5, 6]
+    Output: yes
+
+	Input: [3, -12, 4, 11]
+    Output: no */
+
+
+
+/* 11. Write a function that calculates the product of the elements of the array.
+Input: [2, 8, 3]
+Output:  48 */
+
+/* 12. Write a function that calculates the maximum of the given array.
+Input: [2, 7, 3, 8, 5.4]
+    Output: 8 */
+
