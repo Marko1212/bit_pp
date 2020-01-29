@@ -102,7 +102,7 @@ console.log(filterItems(5));
     Output: 1, 2, 5 */
 
 // indication : https://stackoverflow.com/questions/26468557/return-index-value-from-filter-method-javascript
-
+// FILTER (is simply just REMOVING the UNDEFINED elements (which are FALSY and considered the same as FALSE)
 const array = [1.6, 11.34, 29.23, 7, 3.11, 18];
 
 const indexElement = (arr, number) => arr.map((element, index) => element > number ? index : undefined).filter(x => x);
@@ -113,11 +113,11 @@ console.log(indexElement(array, 10));
 Create an array of persons. A person should be an object with name and age properties.
 a. Experiment with enhanced object literals (ES6).
 b. Write a function that prints out the names of persons older than 25.
-c. Write a function that check if there is a person older than 40.
+c. Write a function that checks if there is a person older than 40.
 d. Write a function that checks if all persons are older than 20.
   */
 
-arrayPersons = [{ name: "John", age: 18 }, { name: "Maria", age: 33 }, { name: "Andjelija", age: 75 }, { name: "Marko", age: 46 }]
+const arrayPersons = [{ name: "John", age: 18 }, { name: "Maria", age: 33 }, { name: "Andjelija", age: 75 }, { name: "Marko", age: 46 }]
 
 // a. Experiment with enhanced object literals (ES6).
 let name = "name";
@@ -142,6 +142,19 @@ const olderThanThreshold = (threshold, arr) => arr.map(element => element.age > 
 
 console.log(olderThanThreshold(25, arrayPersons))
 
+// c. Write a function that checks if there is a person older than 40.
+
+const olderThanForty = arrayPersons.some(item => item.age > 40);
+
+console.log(olderThanForty);
+
+// d. Write a function that checks if all persons are older than 20.
+
+const allOlderThanForty = arrayPersons.every(item => item.age > 40);
+
+console.log(allOlderThanForty);
+
+
 /* 10. Write a function that checks if the given array is an array of positive integer values.
 	Input: [3, 11, 9, 5, 6]
     Output: yes
@@ -150,12 +163,32 @@ console.log(olderThanThreshold(25, arrayPersons))
     Output: no */
 
 
+const input1 = [3, 11, 9, 5, 6];
+const input2 = [3, -12, 4, 11];
+
+const positive1 = input1.every(element => element > 0);
+console.log(positive1);
+
+const positive2 = input2.every(element => element > 0);
+console.log(positive2);
 
 /* 11. Write a function that calculates the product of the elements of the array.
 Input: [2, 8, 3]
 Output:  48 */
 
+const array4 = [2, 8, 3];
+
+const reducer = (accumulator, currentValue) => accumulator * currentValue;
+
+console.log(array4.reduce(reducer, 1));
+
+
 /* 12. Write a function that calculates the maximum of the given array.
 Input: [2, 7, 3, 8, 5.4]
     Output: 8 */
 
+const array5 = [2, 7, 3, 8, 5.4];
+
+const reducer1 = (accumulator, currentValue) => Math.max(accumulator, currentValue);
+
+console.log(array5.reduce(reducer1, -Infinity));
